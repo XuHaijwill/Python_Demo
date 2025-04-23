@@ -47,6 +47,7 @@ y = Date(2025, 1, 1)
 
 print(x == y)  # False
 
+
 class Date2:
     def __init__(self, year, month, date):
         self.year = year
@@ -64,7 +65,32 @@ class Date2:
     def __hash__(self):
         return hash((self.year, self.month, self.date))
 
+
 x2 = Date2(2025, 1, 1)
 y2 = Date2(2025, 1, 1)
 
-print(x2 == y2) # True
+print(x2 == y2)  # True
+
+
+class GetterDemo:
+    def __init__(self):
+        self.data = "Hello"
+
+    def __getattr__(self, item):
+        print(f"__getattr__{item}")
+        return None
+
+    # def __getattribute__(self, item):
+    #     print("__getattribute__")
+    #     return 2
+
+    def __setattr__(self, key, value):
+        print("__setattr__")
+        super().__setattr__(key, value)
+
+
+gt = GetterDemo()
+print(gt.data)
+print(gt.noexists)
+print(gt.__setattr__("data","hello tom"))
+print(gt.data)

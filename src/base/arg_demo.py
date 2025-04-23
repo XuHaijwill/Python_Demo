@@ -1,3 +1,8 @@
+"""
+Python不定长参数 (*args、**kwargs含义)，附使用范例
+https://www.cnblogs.com/oddpage/p/16171113.html
+"""
+
 def foo(param1, *param2):
     """
     单星号（*）：*agrs
